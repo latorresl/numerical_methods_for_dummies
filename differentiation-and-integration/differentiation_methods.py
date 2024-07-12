@@ -1,25 +1,25 @@
-# BACKWARDS, CENTRAL AND FORWARD DIFFERENTIATION METHODS
+# BACKWARD, CENTRAL AND FORWARD DIFFERENTIATION METHODS
 import numpy as np
 import matplotlib.pyplot as plt
 
-def derivada(f,a,m,h):
+def derivative(f,a,m,h):
     if m == 'central':
         return (f(a + h) - f(a - h))/(2*h)
-    elif m == 'adelante':
+    elif m == 'forward':
         return (f(a + h) - f(a))/h
-    elif m == 'atras':
+    elif m == 'backward':
         return (f(a) - f(a - h))/h
     else: 
-        raise ValueError("El método debería ser 'central', 'adelante' o 'atras'.")
+        raise ValueError("Method should be 'central', 'forward' or 'backward'.")
 
 x = np.linspace(0,5*np.pi,100)
-f = derivada(np.sin,x,'central',0.01)
+f = derivative(np.sin,x,'central',0.01)
 fp = np.cos(x)
 
 plt.figure(figsize=(12,5))
-plt.plot(x,f,'r', label='Diferencia Central')
-plt.plot(x,fp,'b',label='Valor verdadero')
-plt.title('Derivada Diferencia Central de y = cos(x)')
+plt.plot(x,f,'r', label='Central difference')
+plt.plot(x,fp,'b',label='True value')
+plt.title('Derivative central difference of y = cos(x)')
 plt.legend(loc='best')
 plt.show()
 
@@ -51,11 +51,11 @@ def fp(x):
     return sym.diff(f(x),x)
 
 Derivativedef = sym.lambdify((x),fp(x), 'numpy')
-print('La derivada de f(x)={} es f´(x)={}'.format(f(x),fp(x)))
+print('Derivative of f(x)={} is f´(x)={}'.format(f(x),fp(x)))
 
 d = richardson(f,x0,n,h)
 error = abs((d[n,n]-Derivativedef(x0)/Derivativedef(x0)))
 print(d)
-print('Aproximación de la derivada \n f´({}) = {}'.format(x0,d[n,n]))
-print('Valor exacto de la derivada \n f´({}) = {}'.format(x0,Derivativedef(x0)))
-print('El error relativo es {}'.format(error))
+print('Derivative approximation \n f´({}) = {}'.format(x0,d[n,n]))
+print('Exact derivative value \n f´({}) = {}'.format(x0,Derivativedef(x0)))
+print('Relative error is {}'.format(error))

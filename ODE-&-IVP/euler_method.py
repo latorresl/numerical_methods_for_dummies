@@ -31,12 +31,11 @@ for i in range(N+1):
     print("i: {:d}\t t: {:.6f}\t w: {:.6f}\t y(t):\
           {:.6f}\t |y(t)-w|: {:.6f}\n".format(i, t[i], y[i], yex[i], np.abs(f1(t[i])-y[i])), end="")
 
-# Plotting
-print('Para la malla: ' + str((b-a)/N))
+print('For the mesh: ' + str((b-a)/N))
 plt.figure(figsize = (12,8))
 plt.plot(t, y, 'r.-')
 plt.plot(t, yex, 'b')
 plt.xlabel('t')
 plt.ylabel('y')
-plt.legend([ 'Euler', 'Exacta'])
+plt.legend([ 'Euler', 'Exact'])
 plt.grid(True)

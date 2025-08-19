@@ -43,9 +43,8 @@ results <- euler_mod(f, y0, t_values, h)
 
 options(digits = 8) 
 
-# Print results
-print("Resultados:")
+print("Results:")
 print("t\t\ty\t\tError")
-for (i in 1:length(resultado$t)) {
-  cat(resultado$t[i], "\t\t", resultado$y[i], "\t\n")
+for (i in 1:length(results$t)) {
+  cat(results$t[i], "\t\t", results$y[i], "\t\n")
 }

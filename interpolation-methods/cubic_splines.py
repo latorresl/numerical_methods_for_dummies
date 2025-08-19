@@ -3,7 +3,7 @@ import sympy as sym
 
 # NATURAL CUBIC SPLINE METHOD
 def CubicNatural(xi, yi):
-    m = xi.size # m es el número de puntos o datos
+    m = xi.size # m is the number of datapoints
     n = m - 1
     a = np.zeros(m)
     b = np.zeros(n)
@@ -48,7 +48,7 @@ def CubicNatural(xi, yi):
 
 # CLAMPED CUBIC SPLINE METHOD
 def CubicCon(xi, yi, yprima_x0, yprima_xn):
-    m = xi.size # m es el número de datos
+    m = xi.size
     n = m - 1
     A = np.zeros(m)
     B = np.zeros(n)

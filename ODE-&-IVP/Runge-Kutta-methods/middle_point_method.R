@@ -26,10 +26,6 @@ t_0 <- 0 # Superior limit
 t_f <- 1 # Inferior limit
 y0 <- 1 # Initial condition
 h <- 0.1 # step size
-
-# Obtain results using this method
 results <- runge_kutta_midp(f, t_0, t_f, y0, h)
-
-# Show results
 print("Middple point method:")
 print(results)
